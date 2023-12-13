@@ -1,0 +1,20 @@
+/*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=00a3b1&c2=01818b&gt=l&gd=dtt
+*/
+.sidebar {
+    background: #00A3B1;
+    background: linear-gradient(180deg, #00A3B1, #01818B);
+}
+
+.bg-active {
+    background-color: #087982;
+}
+
+.pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item > .pro-item-content {
+    color: aliceblue;
+}
+.pro-sidebar .pro-menu {
+    background: #00A3B1;
+    background: linear-gradient(180deg, #00A3B1, #01818B);
+}
