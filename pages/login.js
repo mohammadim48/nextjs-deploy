@@ -18,7 +18,7 @@ export default function login() {
                     <div className='mt-36 mx-48 text-right'>
                         <h1 className='text-2xl text-gray-500'>
                             به سامانه
-                            <label className='text-cyan'> ایرنیک </label>
+                            <label className='text-cyan'> ایرنیک fff</label>
                             خوش آمدید
                         </h1>
 
