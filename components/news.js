@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { client } from '../lib/apollo';
 import { GET_News, News_CategoriesID } from './../lib/querys'
 import { useSelector } from 'react-redux';
+import NextCors from 'nextjs-cors';
 
 export default function News() {
   const { texts } = useSelector((state) => state);
@@ -14,16 +15,23 @@ export default function News() {
 
   const fetchPosts = async () => {
     try {
-      const { data } = await client.query({
-        query: GET_News,
+      // استفاده از متغیر محیطی برای تعیین نشانی API وردپرس
+      const response = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}path-to-your-endpoint`, {
+        method: 'GET',
+        // هر header اضافی که ممکن است نیاز باشد
+        headers: {
+          'Content-Type': 'application/json',
+          // اضافه کردن هدرهای دیگر اگر لازم است
+        },
       });
-      const fetchedPosts = data?.posts?.nodes;
-      setPosts(fetchedPosts);
+      const data = await response.json();
+      // فرض می‌کنیم که پاسخ JSON یک آرایه از پست‌ها را برمی‌گرداند
+      setPosts(data);
     } catch (error) {
-      console.error(error)
+      console.error('There was an error fetching the posts:', error);
       setPosts([]);
     }
-  }
+  };
   useEffect(() => {
   }, [posts])
 
